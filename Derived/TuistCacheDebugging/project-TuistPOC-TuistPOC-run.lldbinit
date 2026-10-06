@@ -1,3 +1,0 @@
-settings set target.swift-framework-search-paths "/Users/eyupgoymen/.cache/tuist/Binaries/c28d0fab78768fbbb2f32994e799a7056c35ed161c5dba414f8b5322da819ac5" "/Users/eyupgoymen/.cache/tuist/Binaries/d7b82f58c12c6b46d82a43c9c06ca5a5d21d1ef154c64ce37ccf0489c4076dad"
-settings set target.swift-module-search-paths "/Users/eyupgoymen/.cache/tuist/Binaries/c28d0fab78768fbbb2f32994e799a7056c35ed161c5dba414f8b5322da819ac5" "/Users/eyupgoymen/.cache/tuist/Binaries/d7b82f58c12c6b46d82a43c9c06ca5a5d21d1ef154c64ce37ccf0489c4076dad"
-settings set symbols.use-swift-explicit-module-loader false

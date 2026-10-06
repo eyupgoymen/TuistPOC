@@ -22,12 +22,12 @@ tuist generate
 tuist generate
 
 # Generate specific module
-tuist generate Core/NetworkingKit
-tuist generate Feature/ProductList
-tuist generate Feature/ProductListDetail
+tuist generate NetworkingKit
+tuist generate ProductList
+tuist generate ProductListDetail
 
 # Generate multiple modules
-tuist generate Core/NetworkingKit Feature/ProductList
+tuist generate NetworkingKit ProductList
 
 # Clean generated files and caches
 tuist clean
@@ -39,8 +39,8 @@ tuist cache clean
 tuist test
 
 # Run tests for specific module
-tuist test Core/NetworkingKit
-tuist test Feature/ProductList
+tuist test NetworkingKit
+tuist test ProductList
 ```
 
 ## Scaffolding New Modules
