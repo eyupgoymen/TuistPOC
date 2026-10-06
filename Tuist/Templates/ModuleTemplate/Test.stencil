@@ -1,0 +1,9 @@
+import Foundation
+import Testing
+
+struct {{ name }}Tests {
+  @Test
+  func example() async throws {
+    #expect("{{ name }}" == "{{ name }}")
+  }
+}

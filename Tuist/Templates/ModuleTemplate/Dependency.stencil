@@ -1,0 +1,32 @@
+import ProjectDescription
+
+public let {{ name || lowerFirstLetter }} = {{ name }}()
+
+public struct {{ name }}: Sendable {
+  private let name = "{{ name }}"
+  private let directory = "{{ directory }}"
+  private let dependencyProvider: TargetDependencyProvider
+  
+  public var impl: TargetDependency {
+    return dependencyProvider.implTarget
+  }
+  
+  {% if contract-available == "true" %}
+  public var contract: TargetDependency {
+    return dependencyProvider.contractTarget
+  }
+  
+  {% endif %}
+  {% if mock-support-available == "true" %}
+  public var mockSupport: TargetDependency {
+    return dependencyProvider.mockSupportTarget
+  }
+  
+  {% endif %}
+  init() {
+    dependencyProvider = TargetDependencyProvider(
+      name: name,
+      directory: directory
+    )
+  }
+}

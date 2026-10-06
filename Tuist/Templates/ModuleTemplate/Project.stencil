@@ -1,0 +1,40 @@
+import ProjectDescription
+import ProjectDescriptionHelpers
+
+public let {{ name }} = ModuleProjectFactory.make(
+  name: "{{ name }}",
+  moduleType: {% if module-type == "framework" %}.framework(hasResources: {{ resources-available | default: "false" }}){% else %}.library{% endif %},
+  layer: .{{ layer-type }},
+  {% if unit-tests-available == "true" %}
+  unitTestAvailability: .available(dependencies: .empty),
+  {% else %}
+  unitTestAvailability: .unavailable,
+  {% endif %}
+  {% if executable-available == "true" and contract-available == "false" %}
+  executableAvailability: .available(dependencies: [
+    {{ name || lowerFirstLetter }}
+  ]),
+  {% endif %}
+  {% if executable-available == "true" and contract-available == "true" %}
+  executableAvailability: .available(dependencies: [
+    {{ name || lowerFirstLetter }}.impl
+  ]),
+  {% endif %}
+  {% if executable-available == "false" %}
+  executableAvailability: .unavailable,
+  {% endif %}
+  {% if mock-support-available == "true" %}
+  mockSupportAvailability: .available(dependencies: .empty),
+  {% else %}
+  mockSupportAvailability: .unavailable,
+  {% endif %}
+  {% if contract-available == "true" %}
+  contractAvailability: .available(dependencies: .empty),
+  dependencies: [
+    {{ name || lowerFirstLetter }}.contract
+  ]
+  {% else %}
+  contractAvailability: .unavailable,
+  dependencies: .empty
+  {% endif %}
+)
