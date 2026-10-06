@@ -18,8 +18,16 @@ tuist generate
 ## Common Commands
 
 ```bash
-# Generate project
+# Generate entire workspace
 tuist generate
+
+# Generate specific module
+tuist generate Core/NetworkingKit
+tuist generate Feature/ProductList
+tuist generate Feature/ProductListDetail
+
+# Generate multiple modules
+tuist generate Core/NetworkingKit Feature/ProductList
 
 # Clean generated files and caches
 tuist clean
